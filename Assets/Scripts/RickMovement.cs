@@ -37,8 +37,7 @@ public class RickMovement : MonoBehaviour
 
             if (health <= 0)
             {
-                //Time.timeScale = 0;
-                //Destroy(gameObject);
+                // тут мог дергаться ивент на смерть рика и экран проигрыша
             }
         }
     }
