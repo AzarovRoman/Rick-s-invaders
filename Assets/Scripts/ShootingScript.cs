@@ -29,7 +29,6 @@ public class ShootingScript : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
-            Ments.RemoveMent(collision.gameObject);
             Destroy(collision.gameObject);
             ScoreManager.instance.AddPoint();
         }

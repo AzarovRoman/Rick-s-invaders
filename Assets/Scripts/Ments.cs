@@ -20,11 +20,6 @@ public class Ments : MonoBehaviour
     private Vector3 _direction = Vector2.right;
     private System.Random _rand;
 
-    public static void RemoveMent(GameObject ment)
-    {
-        ments.Remove(ment);
-    }
-
     private void Awake()
     {
 
@@ -110,24 +105,11 @@ public class Ments : MonoBehaviour
         while (ments.Count > 0 && GameOver2.IsWork == true)
         {
             yield return new WaitForSeconds(1f);
-            var mustShootMent = GetRandomExistanceMent();
+            var mustShootMent = ments[_rand.Next(ments.Count)];
 
             Shoot(mustShootMent.transform);
 
             yield return null;
         }
-    }
-
-    private GameObject GetRandomExistanceMent()
-    {
-        GameObject ment = ments[_rand.Next(ments.Count)];
-
-        while (ment.IsDestroyed() == true || ment == null)
-        {
-            ments.Remove(ment);
-            ment = ments[_rand.Next(ments.Count)];
-        }
-
-        return ment;
     }
 }
